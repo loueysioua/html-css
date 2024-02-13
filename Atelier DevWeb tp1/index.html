@@ -2,26 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Chiffre Caché 🕵️‍♂️ </title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <title>Set difficulty level</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Poor+Story&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Ruslan+Display&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Protest+Riot&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Bahianita&family=Henny+Penny&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="indexStyleSheet.css">
 </head>
 <body>
-    <h1>🕵️‍♂️ Bienvenue dans " Chiffre Caché " ! 🕵️‍♂️</h1>
-    <p><span>Devinez le chiffre caché entre 0 et 100</span></span></p>
-    <div class="input">
-        <form>
-            <label for="inputBox"></label>
-            <input id="inputBox" type="text" name="chiffre" placeholder="Entrez un chiffre">
-            <input class ="btn" type="submit" value="Devinez">
-        </form>
-    </div>
+    <h1>🧨 Testez vos limites ! 🧨</h1>
+    <form action="game.html" method="get">
+        <label for="difficulty" id="label">Choisissez un niveau de difficulté :</label>
+        <select name="difficulty" id="difficulty">
+            <option value="easy">Easy🥴</option>
+            <option value="medium">Medium🧐</option>
+            <option value="hard">Hard😎</option>
+        </select>
+        <input type="submit" value="Start Game">
+    </form>
+    <script>
+        let form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            let difficulty = document.querySelector('select').value;
+            localStorage.setItem('difficulty', difficulty);
+            console.log(localStorage.getItem('difficulty'));
+        });
+    </script>
     <script src="chiffre_cache.js"></script>
 </body>
 </html>
